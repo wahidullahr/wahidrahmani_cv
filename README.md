@@ -1,36 +1,132 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Production-Grade Portfolio MVP
 
-## Getting Started
+A senior-level, production-ready portfolio website built with Next.js 16, TypeScript, and Tailwind CSS. This is not a tutorial—this is a **production-grade codebase** focused on **Architecture**, **Visual Hierarchy**, and **Performance**.
 
-First, run the development server:
+## 🏗️ Architecture
+
+- **Next.js 16** with App Router
+- **TypeScript** for type safety
+- **Tailwind CSS** with custom Obsidian theme
+- **Framer Motion** for smooth animations
+- **Component-based** architecture with reusable ExperienceCard
+
+## 🎨 Design System
+
+### Color Palette (Obsidian Theme)
+- **Background**: `#0a0a0a` (Deep charcoal, not pure black)
+- **Surface**: `#111111` (Slightly lighter for cards)
+- **Primary**: `#10b981` (Emerald - Software Stability)
+- **Text Primary**: `#ededed` (Almost white)
+- **Text Secondary**: `#a1a1aa` (Zinc-400)
+
+### Typography
+- **Font**: Inter (via Next.js font optimization)
+- **Smooth scrolling** enabled
+- **Anti-aliasing** for crisp text on high-DPI screens
+
+## 🚀 Getting Started
+
+### Prerequisites
+- Node.js >= 20.9.0 (required for Next.js 16)
+- npm, yarn, pnpm, or bun
+
+### Installation
+
+```bash
+npm install
+```
+
+### Development
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Production Build
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+npm start
+```
 
-## Learn More
+## 📁 Project Structure
 
-To learn more about Next.js, take a look at the following resources:
+```
+portfolio/
+├── src/
+│   ├── app/
+│   │   ├── layout.tsx      # Root layout with metadata
+│   │   ├── page.tsx         # Main portfolio page
+│   │   └── globals.css      # Global styles & Tailwind
+│   ├── components/
+│   │   └── ExperienceCard.tsx  # Reusable experience component
+│   └── lib/
+│       └── utils.ts         # Utility functions (cn helper)
+├── tailwind.config.ts       # Tailwind configuration
+└── package.json
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## ✨ Features
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **Responsive Design**: Mobile-first approach
+- **Sticky Header**: Left sidebar stays fixed on desktop
+- **Smooth Animations**: Framer Motion for scroll-triggered animations
+- **Accessibility**: Semantic HTML, ARIA labels
+- **Performance**: Optimized fonts, code splitting
+- **SEO**: OpenGraph metadata for social sharing
 
-## Deploy on Vercel
+## 🎯 Experience Card Format
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Use the **XYZ Formula** for descriptions:
+> "Accomplished [X] as measured by [Y], by doing [Z]"
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Example:
+> "Spearheaded the migration of a legacy jQuery monolith to Next.js 14, reducing page load times by 40% and improving SEO rankings."
+
+## 🔧 Customization
+
+1. **Update Personal Info**: Edit `src/app/page.tsx`
+2. **Add Experience**: Add more `ExperienceCard` components
+3. **Modify Colors**: Update `tailwind.config.ts`
+4. **Change Metadata**: Edit `src/app/layout.tsx`
+
+## 📦 Dependencies
+
+- `next`: 16.0.7
+- `react`: 19.2.0
+- `framer-motion`: ^12.23.25
+- `lucide-react`: ^0.556.0
+- `clsx`: ^2.1.1
+- `tailwind-merge`: ^3.4.0
+
+## 🚢 Deployment
+
+Deploy easily to:
+- **Vercel** (recommended for Next.js)
+- **Netlify**
+- **AWS Amplify**
+- Any platform supporting Next.js
+
+## 📝 Git Commit Strategy
+
+This project follows clean, granular commits:
+- Configuration commits
+- Feature commits
+- Component commits
+- Layout commits
+
+## 🎓 Senior Engineering Practices
+
+- ✅ Utility functions for class merging (`cn` helper)
+- ✅ TypeScript interfaces for type safety
+- ✅ Reusable components
+- ✅ Mobile-first responsive design
+- ✅ Performance optimizations
+- ✅ Accessibility considerations
+- ✅ Clean git history
+
+---
+
+Built with ❤️ using Next.js and Tailwind CSS
