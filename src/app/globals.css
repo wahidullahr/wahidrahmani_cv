@@ -1,0 +1,37 @@
+@tailwind base;
+
+@tailwind components;
+
+@tailwind utilities;
+
+:root {
+
+  /* Smooth scrolling is mandatory for premium feel */
+
+  scroll-behavior: smooth; 
+
+}
+
+body {
+
+  background-color: #0a0a0a;
+
+  color: #ededed;
+
+  /* Anti-aliasing makes text look crisp on high-DPI screens */
+
+  -webkit-font-smoothing: antialiased; 
+
+  -moz-osx-font-smoothing: grayscale;
+
+}
+
+/* Custom Selection Color - A small detail recruiters love */
+
+::selection {
+
+  background: rgba(16, 185, 129, 0.2); /* Primary color low opacity */
+
+  color: #10b981;
+
+}
