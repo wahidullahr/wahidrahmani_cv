@@ -1,30 +1,95 @@
 @import "tailwindcss";
 
 @theme {
-  --color-background: #0a0a0a;
-  --color-surface: #111111;
-  --color-primary: #10b981;
-  --color-text-primary: #ededed;
-  --color-text-secondary: #a1a1aa;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  
+  --color-surface: var(--surface);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  
+  --color-border: var(--border);
+  --color-input: var(--input);
+  
+  /* Legacy/Custom Mappings */
+  --color-text-primary: var(--foreground);
+  --color-text-secondary: var(--text-secondary);
   
   --font-sans: var(--font-inter);
 }
 
+/* Light Mode (Default) */
 :root {
+  /* Base: Zinc 50 / Zinc 950 */
+  --background: #fafafa;
+  --foreground: #09090b;
+
+  /* Surface/Cards: White */
+  --surface: #ffffff;
+  --card: #ffffff;
+  --card-foreground: #09090b;
+
+  /* Primary: Emerald 600 (Slightly darker for light mode contrast) */
+  --primary: #059669;
+  --primary-foreground: #ffffff;
+
+  /* Secondary Text: Zinc 500 */
+  --text-secondary: #71717a;
+
+  /* Borders: Zinc 200 */
+  --border: #e4e4e7;
+  --input: #e4e4e7;
+
   /* Smooth scrolling is mandatory for premium feel */
-  scroll-behavior: smooth; 
+  scroll-behavior: smooth;
+}
+
+/* Dark Mode */
+.dark {
+  /* Base: Obsidian (#0a0a0a) */
+  --background: #0a0a0a;
+  --foreground: #ededed;
+
+  /* Surface: #111111 */
+  --surface: #111111;
+  --card: #111111;
+  --card-foreground: #ededed;
+
+  /* Primary: Emerald 500 */
+  --primary: #10b981;
+  --primary-foreground: #000000;
+
+  /* Secondary Text: Zinc 400 */
+  --text-secondary: #a1a1aa;
+
+  /* Borders: White/10 (~Zinc 800) */
+  --border: rgba(255, 255, 255, 0.1);
+  --input: rgba(255, 255, 255, 0.1);
 }
 
 body {
-  background-color: var(--color-background);
-  color: var(--color-text-primary);
+  background-color: var(--background);
+  color: var(--foreground);
   /* Anti-aliasing makes text look crisp on high-DPI screens */
   -webkit-font-smoothing: antialiased; 
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Custom Selection Color - A small detail recruiters love */
+/* Custom Selection Color */
 ::selection {
-  background: rgba(16, 185, 129, 0.2); /* Primary color low opacity */
+  background: var(--primary);
+  color: var(--primary-foreground);
+  opacity: 0.2; /* Note: background opacity works differently in selection */
+}
+/* Fix for selection opacity */
+::selection {
+  background: rgba(16, 185, 129, 0.2);
+  color: #10b981;
+}
+.dark ::selection {
+  background: rgba(16, 185, 129, 0.3);
   color: #10b981;
 }

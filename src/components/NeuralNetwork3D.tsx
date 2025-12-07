@@ -1,9 +1,10 @@
 "use client";
 
-import { useRef, useMemo } from "react";
+import { useRef, useMemo, useEffect, useState } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { OrbitControls, Sphere, Line } from "@react-three/drei";
 import * as THREE from "three";
+import { useTheme } from "next-themes";
 
 // Configuration for the 3D graph
 const NODE_COUNT = 40;
@@ -12,6 +13,13 @@ const GRAPH_RADIUS = 4;
 
 function Graph() {
   const groupRef = useRef<THREE.Group>(null);
+  const { theme } = useTheme();
+  const [color, setColor] = useState("#10b981");
+
+  useEffect(() => {
+    // Match --primary from globals.css
+    setColor(theme === "light" ? "#059669" : "#10b981");
+  }, [theme]);
 
   // 1. Generate random node positions in a sphere
   const nodes = useMemo(() => {
@@ -51,14 +59,14 @@ function Graph() {
     }
   });
 
-  const emeraldColor = new THREE.Color("#10b981");
+  const threeColor = new THREE.Color(color);
 
   return (
     <group ref={groupRef}>
       {/* Render Nodes */}
       {nodes.map((pos, i) => (
         <Sphere key={i} position={pos} args={[0.08, 16, 16]}>
-          <meshBasicMaterial color={emeraldColor} />
+          <meshBasicMaterial color={threeColor} />
         </Sphere>
       ))}
       {/* Render Connections */}
@@ -66,7 +74,7 @@ function Graph() {
         <Line
           key={i}
           points={[start, end]}
-          color={emeraldColor}
+          color={threeColor}
           lineWidth={1}
           transparent
           opacity={0.3}

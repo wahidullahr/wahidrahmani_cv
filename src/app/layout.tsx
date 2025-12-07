@@ -1,3 +1,4 @@
+import { ThemeProvider } from "@/components/ThemeProvider";
 import type { Metadata } from "next";
 
 import { Inter } from "next/font/google"; // Best readable sans-serif
@@ -38,12 +39,17 @@ export default function RootLayout({
 
   return (
 
-    <html lang="en" className="scroll-smooth">
+    <html lang="en" className="scroll-smooth" suppressHydrationWarning>
 
       <body className={`${inter.variable} font-sans antialiased leading-relaxed selection:bg-emerald-500/20`}>
-
-        {children}
-
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="dark"
+          enableSystem
+          disableTransitionOnChange
+        >
+          {children}
+        </ThemeProvider>
       </body>
 
     </html>
