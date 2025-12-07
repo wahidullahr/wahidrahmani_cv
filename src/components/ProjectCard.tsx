@@ -47,7 +47,7 @@ export const ProjectCard = ({ title, description, tags, links, images }: Project
   };
 
   return (
-    <div className="group/project flex flex-col h-full bg-card border border-border rounded-xl overflow-hidden hover:border-primary/20 transition-colors">
+    <div className="group/project flex flex-col bg-card border border-border rounded-xl overflow-hidden hover:border-primary/20 transition-colors shadow-sm">
       
       {/* Image Carousel */}
       <div className="relative h-48 w-full overflow-hidden bg-background border-b border-border group">

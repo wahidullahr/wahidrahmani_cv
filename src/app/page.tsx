@@ -1,7 +1,8 @@
 import { BentoCard } from "@/components/BentoCard";
 import { ProjectCard } from "@/components/ProjectCard";
+import { ContactForm } from "@/components/ContactForm";
 import { ThemeToggle } from "@/components/ThemeToggle";
-import { Github, Linkedin, Mail, ArrowUpRight, Code2, Database, Terminal, Cpu, Trophy, Rocket, TrendingUp } from "lucide-react";
+import { Github, Linkedin, Mail, Code2, Database, Terminal, Cpu, Trophy, Rocket, TrendingUp, ArrowUpRight } from "lucide-react";
 import { NeuralNetwork3D } from "@/components/NeuralNetwork3D";
 
 export default function Home() {
@@ -19,17 +20,17 @@ export default function Home() {
         
         {/* Header: Personal Info & Summary */}
         <header className="py-12 md:py-24">
-          <h1 className="text-5xl md:text-8xl font-bold tracking-tighter text-foreground mb-6">
+          <h1 className="text-4xl md:text-5xl lg:text-8xl font-bold tracking-tighter text-foreground mb-6">
             Wahid Rahmani<span className="text-primary">.</span>
           </h1>
-          <p className="text-xl md:text-2xl text-text-secondary max-w-3xl leading-relaxed">
+          <p className="text-lg md:text-xl lg:text-2xl text-text-secondary max-w-3xl leading-relaxed">
             Software Engineer & <span className="text-primary">AI/ML Specialist</span>. 
             Bridging the gap between complex AI algorithms and user-friendly applications in fast-paced Agile environments.
           </p>
           <div className="mt-6 flex flex-wrap gap-3 text-sm text-text-secondary font-mono">
              <span>📍 Bærum, Norway</span>
-             <span>•</span>
-             <span>Fluent in Norwegian, English, Hindi, Persian, Pashto</span>
+             <span className="hidden md:inline">•</span>
+             <span className="w-full md:w-auto">Fluent in Norwegian, English, Hindi, Persian, Pashto</span>
           </div>
         </header>
 
@@ -170,6 +171,10 @@ export default function Home() {
                 </div>
              </div>
           </BentoCard>
+        </div>
+
+        {/* FULL WIDTH SECTIONS (Outside the Main Grid for better mobile flow) */}
+        <div className="max-w-7xl mx-auto space-y-6">
 
           {/* BLOCK 5: Previous Experience (Full Width) */}
           <BentoCard colSpan="col-span-1" className="md:col-span-4" title="Previous Experience">
@@ -207,7 +212,7 @@ export default function Home() {
           </BentoCard>
 
           {/* BLOCK 5.5: Projects Showcase (Clean Grid) */}
-          <div className="col-span-1 md:col-span-4 space-y-6">
+          <div className="space-y-8 relative z-10">
               <div className="flex items-center gap-4">
                  <h2 className="text-xs font-bold uppercase tracking-widest text-text-secondary">Featured Projects</h2>
                  <div className="h-px bg-border flex-1"></div>
@@ -275,7 +280,7 @@ export default function Home() {
 
                     <div className="flex gap-4 mt-8">
                         {[
-                           { icon: Linkedin, href: "https://www.linkedin.com/in/wahid-rahmani", label: "LinkedIn" },
+                           { icon: Linkedin, href: "https://www.linkedin.com/in/wahid-rahmani-91015bb7/", label: "LinkedIn" },
                            { icon: Github, href: "https://github.com/wahidullahr", label: "GitHub" },
                            { icon: Mail, href: "mailto:wahidullah_rahmani@hotmail.com", label: "Email" }
                         ].map((social, i) => (
@@ -295,29 +300,7 @@ export default function Home() {
 
                  {/* Right: Contact Form (Functional Mailto) */}
                  <div className="p-8 md:p-12 bg-card border-t md:border-t-0 md:border-l border-border">
-                    <form 
-                        action="mailto:wahidullah_rahmani@hotmail.com" 
-                        method="post" 
-                        encType="text/plain"
-                        className="space-y-4"
-                    >
-                        <div>
-                            <label htmlFor="name" className="block text-xs font-bold uppercase tracking-wider text-text-secondary mb-2">Name</label>
-                            <input type="text" id="name" name="name" className="w-full bg-input border border-input rounded-lg px-4 py-3 text-foreground text-sm focus:outline-none focus:border-primary transition-colors" placeholder="Your Name" required />
-                        </div>
-                        <div>
-                            <label htmlFor="email" className="block text-xs font-bold uppercase tracking-wider text-text-secondary mb-2">Email</label>
-                            <input type="email" id="email" name="email" className="w-full bg-input border border-input rounded-lg px-4 py-3 text-foreground text-sm focus:outline-none focus:border-primary transition-colors" placeholder="your@email.com" required />
-                        </div>
-                        <div>
-                            <label htmlFor="message" className="block text-xs font-bold uppercase tracking-wider text-text-secondary mb-2">Message</label>
-                            <textarea id="message" name="message" rows={3} className="w-full bg-input border border-input rounded-lg px-4 py-3 text-foreground text-sm focus:outline-none focus:border-primary transition-colors resize-none" placeholder="Hello! I'd like to discuss..." required></textarea>
-                        </div>
-                        <button type="submit" className="w-full bg-primary text-primary-foreground font-bold py-3 rounded-lg hover:bg-primary/90 transition-colors flex items-center justify-center gap-2 group">
-                            Send Message
-                            <ArrowUpRight size={16} className="group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-transform" />
-                        </button>
-                    </form>
+                    <ContactForm />
                  </div>
 
               </div>
