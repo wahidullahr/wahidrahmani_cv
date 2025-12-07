@@ -7,11 +7,11 @@ import { NeuralNetwork3D } from "@/components/NeuralNetwork3D";
 export default function Home() {
   return (
     <div className="min-h-screen bg-background text-foreground p-4 md:p-8 font-sans selection:bg-primary/20 relative overflow-hidden transition-colors duration-300">
-      {/* 3D Background Layer */}
-      <NeuralNetwork3D className="absolute top-0 left-0 w-full h-[60vh] z-0 opacity-20 pointer-events-none" />
+      {/* 3D Background Layer with Fade */}
+      <NeuralNetwork3D className="absolute top-0 left-0 w-full h-[50vh] z-0 opacity-15 pointer-events-none mix-blend-multiply dark:mix-blend-normal" />
       
-      {/* Theme Toggle */}
-      <div className="absolute top-6 right-6 z-50">
+      {/* Theme Toggle - Fixed position to ensure it doesn't break layout flow */}
+      <div className="fixed top-6 right-6 z-50">
         <ThemeToggle />
       </div>
 
@@ -206,9 +206,12 @@ export default function Home() {
              </div>
           </BentoCard>
 
-          {/* BLOCK 5.5: Projects Showcase */}
-          <div className="col-span-1 md:col-span-4">
-              <h2 className="text-xs font-bold uppercase tracking-widest text-text-secondary mb-6">Featured Projects</h2>
+          {/* BLOCK 5.5: Projects Showcase (Clean Grid) */}
+          <div className="col-span-1 md:col-span-4 space-y-6">
+              <div className="flex items-center gap-4">
+                 <h2 className="text-xs font-bold uppercase tracking-widest text-text-secondary">Featured Projects</h2>
+                 <div className="h-px bg-border flex-1"></div>
+              </div>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                   {/* Project 1 */}
                   <ProjectCard 

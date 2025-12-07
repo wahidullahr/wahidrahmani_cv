@@ -86,12 +86,11 @@ function Graph() {
 
 export const NeuralNetwork3D = ({ className }: { className?: string }) => {
   return (
-    <div className={className}>
-      <Canvas camera={{ position: [0, 0, 10], fov: 50 }}>
+    <div className={`${className} mask-linear-fade`}>
+      <Canvas camera={{ position: [0, 0, 10], fov: 50 }} gl={{ alpha: true, antialias: true }}>
         <ambientLight intensity={0.5} />
         <Graph />
-        {/* Allow user interaction */}
-        <OrbitControls enableZoom={false} autoRotate={false} enablePan={false} />
+        <OrbitControls enableZoom={false} autoRotate={true} autoRotateSpeed={0.5} enablePan={false} enableRotate={false} />
       </Canvas>
     </div>
   );

@@ -14,6 +14,9 @@
   --color-border: var(--border);
   --color-input: var(--input);
   
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  
   /* Legacy/Custom Mappings */
   --color-text-primary: var(--foreground);
   --color-text-secondary: var(--text-secondary);
@@ -36,12 +39,16 @@
   --primary: #059669;
   --primary-foreground: #ffffff;
 
-  /* Secondary Text: Zinc 500 */
-  --text-secondary: #71717a;
+  /* Secondary Text: Zinc 700 (Much darker for clear visibility) */
+  --text-secondary: #3f3f46;
 
-  /* Borders: Zinc 200 */
-  --border: #e4e4e7;
-  --input: #e4e4e7;
+  /* Borders: Zinc 300 */
+  --border: #d4d4d8;
+  --input: #d4d4d8;
+
+  /* Secondary Elements: Zinc 100 */
+  --secondary: #f4f4f5;
+  --secondary-foreground: #18181b;
 
   /* Smooth scrolling is mandatory for premium feel */
   scroll-behavior: smooth;
@@ -68,6 +75,10 @@
   /* Borders: White/10 (~Zinc 800) */
   --border: rgba(255, 255, 255, 0.1);
   --input: rgba(255, 255, 255, 0.1);
+
+  /* Secondary Elements: Zinc 800 */
+  --secondary: #27272a;
+  --secondary-foreground: #fafafa;
 }
 
 body {
@@ -92,4 +103,10 @@ body {
 .dark ::selection {
   background: rgba(16, 185, 129, 0.3);
   color: #10b981;
+}
+
+/* Utility for fading out the 3D background */
+.mask-linear-fade {
+  mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
 }
