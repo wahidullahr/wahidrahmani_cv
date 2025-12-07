@@ -1,161 +1,146 @@
-import { ExperienceCard } from "@/components/ExperienceCard";
-
-import { Github, Linkedin, Mail } from "lucide-react"; // Icons
+import { BentoCard } from "@/components/BentoCard";
+import { NeuralNetwork3D } from "@/components/NeuralNetwork3D";
+import { Github, Linkedin, Mail, ArrowUpRight, Code2, Database, Terminal, Cpu } from "lucide-react";
 
 export default function Home() {
-
   return (
+    <div className="min-h-screen bg-black text-neutral-200 p-4 md:p-8 font-sans selection:bg-emerald-500/30 relative overflow-hidden">
+      {/* 3D Background Layer */}
+      <NeuralNetwork3D className="absolute top-0 left-0 w-full h-[60vh] z-0 opacity-20 pointer-events-none" />
 
-    <div className="lg:flex lg:justify-between lg:gap-4">
-
-      {/* Left Side: Fixed Header (Sticky) */}
-
-      <header className="lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-1/2 lg:flex-col lg:justify-between lg:py-24">
-
-        <div>
-
-          <h1 className="text-4xl font-bold tracking-tight text-text-primary sm:text-5xl">
-
-            [Your Name]
-
+      <div className="max-w-7xl mx-auto space-y-12 relative z-10">
+        
+        {/* Header: Clean & Brutalist */}
+        <header className="py-12 md:py-24">
+          <h1 className="text-5xl md:text-8xl font-bold tracking-tighter text-white mb-6">
+            Wahid Rahmani<span className="text-emerald-500">.</span>
           </h1>
-
-          <h2 className="mt-3 text-lg font-medium tracking-tight text-text-primary sm:text-xl">
-
-            Software Engineer
-
-          </h2>
-
-          <p className="mt-4 max-w-xs leading-normal text-text-secondary">
-
-            I build pixel-perfect, accessible, and performant web experiences.
-
+          <p className="text-xl md:text-2xl text-neutral-400 max-w-3xl leading-relaxed">
+            Software Engineer specializing in <span className="text-emerald-400">High-Performance Systems</span> and <span className="text-emerald-400">Machine Learning</span>.
+            Bridging the gap between complex algorithms and pixel-perfect UIs.
           </p>
+        </header>
 
+        {/* The Grid System */}
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 auto-rows-[minmax(180px,auto)]">
           
+          {/* BLOCK 1: Current Status (Large) */}
+          <BentoCard colSpan="col-span-2" className="md:row-span-2 bg-gradient-to-b from-neutral-900 to-neutral-900/50" title="Current Focus">
+             <div className="flex flex-col justify-between h-full">
+                <div className="space-y-4">
+                  <h2 className="text-3xl font-bold text-white">Software Engineer @ Xala Technologies</h2>
+                  <p className="text-neutral-400 leading-relaxed">
+                    Architecting robust web applications using <strong className="text-white">Python & React</strong>. 
+                    I focus on preprocessing large datasets for predictive analytics and ensuring system stability under high load.
+                  </p>
+                </div>
+                
+                {/* Micro-interaction Buttons */}
+                <div className="mt-8 flex gap-3">
+                  <a href="/cv.pdf" className="inline-flex items-center gap-2 bg-white text-black px-5 py-2.5 rounded-lg font-bold hover:bg-emerald-400 transition-colors">
+                    Download CV <ArrowUpRight size={16} />
+                  </a>
+                  <a href="mailto:wahidullah_rahmani@hotmail.com" className="inline-flex items-center gap-2 bg-neutral-800 text-white px-5 py-2.5 rounded-lg font-bold hover:bg-neutral-700 transition-colors border border-neutral-700">
+                    Get in Touch
+                  </a>
+                </div>
+             </div>
+          </BentoCard>
 
-          {/* Simple Nav for Jump Links (Optional but nice) */}
+          {/* BLOCK 2: Stack (Vertical) */}
+          <BentoCard className="md:row-span-2" title="Tech Stack">
+            <div className="space-y-6">
+              <div>
+                <div className="text-sm text-emerald-500 mb-2 font-mono">Core</div>
+                <div className="flex flex-wrap gap-2">
+                  {["Python", "TypeScript", "Kotlin", "Java"].map(t => (
+                     <span key={t} className="px-2 py-1 bg-neutral-800 rounded text-xs text-neutral-300 border border-neutral-700">{t}</span>
+                  ))}
+                </div>
+              </div>
+              <div>
+                <div className="text-sm text-emerald-500 mb-2 font-mono">Frontend</div>
+                 <div className="flex flex-wrap gap-2">
+                  {["React", "Next.js", "Tailwind", "Framer Motion"].map(t => (
+                     <span key={t} className="px-2 py-1 bg-neutral-800 rounded text-xs text-neutral-300 border border-neutral-700">{t}</span>
+                  ))}
+                </div>
+              </div>
+               <div>
+                <div className="text-sm text-emerald-500 mb-2 font-mono">Infrastructure</div>
+                 <div className="flex flex-wrap gap-2">
+                  {["AWS", "Docker", "PostgreSQL", "Redis"].map(t => (
+                     <span key={t} className="px-2 py-1 bg-neutral-800 rounded text-xs text-neutral-300 border border-neutral-700">{t}</span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </BentoCard>
 
-          <nav className="nav hidden lg:block mt-16">
+          {/* BLOCK 3: Github Stats / Activity */}
+          <BentoCard title="Commit Activity" className="flex items-center justify-center">
+             <div className="text-center">
+                <div className="text-4xl font-bold text-white">1,200+</div>
+                <div className="text-xs text-neutral-500 mt-1">Contributions this year</div>
+                <div className="mt-4 flex gap-1 justify-center opacity-50">
+                   {[1,2,3,4,5].map(i => <div key={i} className="w-2 h-8 bg-emerald-500 rounded-sm"></div>)}
+                </div>
+             </div>
+          </BentoCard>
 
-             {/* Add navigation links here if needed */}
+          {/* BLOCK 4: Education */}
+          <BentoCard title="Education" className="flex flex-col justify-center">
+             <div className="space-y-4">
+                <div>
+                   <div className="text-white font-bold">M.Sc. Informatics: ML</div>
+                   <div className="text-xs text-neutral-500">University of Oslo</div>
+                </div>
+                 <div>
+                   <div className="text-white font-bold">B.Sc. IT Systems</div>
+                   <div className="text-xs text-neutral-500">Univ. of South-Eastern Norway</div>
+                </div>
+             </div>
+          </BentoCard>
 
-          </nav>
+          {/* BLOCK 5: Previous Experience (Wide) */}
+          <BentoCard colSpan="col-span-2" title="Previous Experience">
+             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-2">
+                <div>
+                   <h3 className="text-white font-bold">App Developer</h3>
+                   <p className="text-xs text-emerald-500 mb-2">Beining & Bogen AS • 2022-2025</p>
+                   <p className="text-sm text-neutral-400">
+                      Led full-lifecycle Android development using Kotlin & Jetpack Compose.
+                      Built context-aware algorithms for personalized user experiences.
+                   </p>
+                </div>
+                 <div>
+                   <h3 className="text-white font-bold">Web Ops Specialist</h3>
+                   <p className="text-xs text-emerald-500 mb-2">KS Privatist AS • 2020-2021</p>
+                   <p className="text-sm text-neutral-400">
+                      Technical bridge between business and dev. Optimized SEO and maintained 99.9% uptime.
+                   </p>
+                </div>
+             </div>
+          </BentoCard>
+
+           {/* BLOCK 6: Socials */}
+           <BentoCard colSpan="col-span-2" className="flex items-center justify-between px-10 bg-emerald-900/10 border-emerald-500/20">
+              <span className="text-lg font-bold text-emerald-400">Let's build something extraordinary.</span>
+              <div className="flex gap-6">
+                <a href="https://github.com/wahidullahr" target="_blank" rel="noreferrer" className="hover:text-white text-neutral-400 transition-colors"><Github /></a>
+                <a href="https://www.linkedin.com/in/wahid-rahmani" target="_blank" rel="noreferrer" className="hover:text-white text-neutral-400 transition-colors"><Linkedin /></a>
+                <a href="mailto:wahidullah_rahmani@hotmail.com" className="hover:text-white text-neutral-400 transition-colors"><Mail /></a>
+              </div>
+          </BentoCard>
 
         </div>
-
         
+        {/* Footer */}
+        <footer className="pt-20 pb-10 text-center text-neutral-600 text-sm">
+           <p>© 2025 Wahid Rahmani. Built with Next.js 16 & Tailwind.</p>
+        </footer>
 
-        {/* Social Links */}
-
-        <ul className="ml-1 mt-8 flex items-center" aria-label="Social media">
-
-          <li className="mr-5 text-xs">
-
-            <a href="#" className="block hover:text-text-primary transition-colors">
-
-              <Github className="h-6 w-6" />
-
-            </a>
-
-          </li>
-
-          <li className="mr-5 text-xs">
-
-            <a href="#" className="block hover:text-text-primary transition-colors">
-
-              <Linkedin className="h-6 w-6" />
-
-            </a>
-
-          </li>
-
-          <li className="mr-5 text-xs">
-
-             <a href="mailto:email@example.com" className="block hover:text-text-primary transition-colors">
-
-              <Mail className="h-6 w-6" />
-
-            </a>
-
-          </li>
-
-        </ul>
-
-      </header>
-
-      {/* Right Side: Scrollable Content */}
-
-      <main className="pt-24 lg:w-1/2 lg:py-24">
-
-        <section id="about" className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24">
-
-            <div className="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-background/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
-
-              <h2 className="text-sm font-bold uppercase tracking-widest text-text-primary lg:sr-only">About</h2>
-
-            </div>
-
-            <p className="text-text-secondary leading-relaxed">
-
-              Back in 2018, I decided to try my hand at creating custom Tumblr themes and tumbled head first into the rabbit hole of coding. Fast-forward to today, and I've had the privilege of building software for an <span className="text-primary font-medium">advertising agency</span>, a <span className="text-primary font-medium">start-up</span>, and a <span className="text-primary font-medium">huge corporation</span>.
-
-            </p>
-
-        </section>
-
-        <section id="experience" className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24">
-
-           <div className="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-background/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
-
-              <h2 className="text-sm font-bold uppercase tracking-widest text-text-primary lg:sr-only">Experience</h2>
-
-            </div>
-
-            <div className="group/list">
-
-                {/* THIS IS WHERE YOU WIN OR LOSE. 
-
-                  USE THE XYZ FORMULA: "Accomplished [X] as measured by [Y], by doing [Z]"
-
-                */}
-
-                <ExperienceCard 
-
-                  date="2022 — Present"
-
-                  title="Senior Frontend Engineer"
-
-                  company="TechCorp"
-
-                  description="Spearheaded the migration of a legacy jQuery monolith to Next.js 14, reducing page load times by 40% and improving SEO rankings. Engineered a reusable component library used by 3 separate squads, decreasing development velocity by 20%."
-
-                  skills={["React", "Next.js", "TypeScript", "AWS"]}
-
-                />
-
-                 <ExperienceCard 
-
-                  date="2020 — 2022"
-
-                  title="Software Developer"
-
-                  company="StartUp Inc"
-
-                  description="Developed and maintained critical microservices processing 10k+ requests per minute. Implemented automated testing pipelines (CI/CD) that reduced deployment crashes by 95%."
-
-                  skills={["Node.js", "PostgreSQL", "Docker", "Redis"]}
-
-                />
-
-            </div>
-
-        </section>
-
-      </main>
-
+      </div>
     </div>
-
   );
-
 }

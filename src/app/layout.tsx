@@ -8,17 +8,17 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
 export const metadata: Metadata = {
 
-  title: "Your Name | Software Engineer",
+  title: "Wahid Rahmani | Software Engineer | AI & Machine Learning Specialist",
 
-  description: "Senior-level Full Stack Engineer specializing in scalable architecture.",
+  description: "Software Engineer with a Master's in Machine Learning. Expert in building intelligent, scalable systems using Python, React, and Kotlin.",
 
   // These are critical for when your link is shared on Slack/Teams
 
   openGraph: {
 
-    title: "Your Name | Software Engineer",
+    title: "Wahid Rahmani | Software Engineer | AI & Machine Learning Specialist",
 
-    description: "Building scalable web applications.",
+    description: "Building intelligent, scalable systems bridging AI algorithms and user-friendly applications.",
 
     type: "website",
 
@@ -42,13 +42,7 @@ export default function RootLayout({
 
       <body className={`${inter.variable} font-sans antialiased leading-relaxed selection:bg-emerald-500/20`}>
 
-        {/* We wrap content to prevent 4k monitors stretching text too wide */}
-
-        <main className="mx-auto max-w-screen-xl px-6 md:px-12 lg:px-24">
-
-          {children}
-
-        </main>
+        {children}
 
       </body>
 

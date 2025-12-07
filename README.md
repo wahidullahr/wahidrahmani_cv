@@ -1,85 +1,91 @@
-# Production-Grade Portfolio MVP
+# Portfolio v4
 
-A senior-level, production-ready portfolio website built with Next.js 16, TypeScript, and Tailwind CSS. This is not a tutorial—this is a **production-grade codebase** focused on **Architecture**, **Visual Hierarchy**, and **Performance**.
+This is the fourth iteration of my personal portfolio, built with a focus on accessibility, performance, and "zero-friction" UX.
 
-## 🏗️ Architecture
+## 🏗 Tech Stack
 
-- **Next.js 16** with App Router
-- **TypeScript** for type safety
-- **Tailwind CSS** with custom Obsidian theme
-- **Framer Motion** for smooth animations
-- **Component-based** architecture with reusable ExperienceCard
+* **Framework:** Next.js 16 (App Router)
+* **Language:** TypeScript (Strict Mode)
+* **Styling:** Tailwind CSS v4
+* **Motion:** Framer Motion
+* **Icons:** Lucide React
+* **Deployment:** Vercel Edge Network
 
-## 🎨 Design System
+## ⚡ Performance Strategy
 
-### Color Palette (Obsidian Theme)
-- **Background**: `#0a0a0a` (Deep charcoal, not pure black)
-- **Surface**: `#111111` (Slightly lighter for cards)
-- **Primary**: `#10b981` (Emerald - Software Stability)
-- **Text Primary**: `#ededed` (Almost white)
-- **Text Secondary**: `#a1a1aa` (Zinc-400)
+The site is engineered for a perfect **100/100 Lighthouse score**.
 
-### Typography
-- **Font**: Inter (via Next.js font optimization)
-- **Smooth scrolling** enabled
-- **Anti-aliasing** for crisp text on high-DPI screens
+1. **Zero Layout Shift (CLS):** Fonts are preloaded via `next/font`.
+2. **Interactive Spotlight:** Uses direct DOM manipulation via `useMotionValue` to avoid React render cycles on mouse movement.
+3. **Accessibility:** Fully navigable via keyboard, correct semantic HTML5 tags, and ARIA labels for screen readers.
 
-## 🚀 Getting Started
+## 🎨 Design Philosophy
 
-### Prerequisites
-- Node.js >= 20.9.0 (required for Next.js 16)
-- npm, yarn, pnpm, or bun
+### Obsidian Theme
+- **Background:** Deep charcoal (`#0a0a0a`) - not pure black for reduced eye strain
+- **Surface:** Slightly lighter (`#111111`) for cards/sections
+- **Primary:** Emerald (`#10b981`) - Software Stability
+- **Typography:** Refined slate colors for optimal contrast and readability
 
-### Installation
+### Senior-Level Features
+- **Spotlight Effect:** Dynamic mouse-tracking radial gradient for premium feel
+- **40/60 Layout:** Tighter grid system for better visual hierarchy
+- **Hover Interactions:** Experience cards dim others on hover for focus
+- **Max-width Constraints:** Text never exceeds 60-75 characters for readability
+
+## 🚀 Local Development
 
 ```bash
+# Install dependencies
 npm install
-```
 
-### Development
-
-```bash
+# Run development server
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) to see the result.
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-### Production Build
+## 📦 Build for Production
 
 ```bash
+# Create optimized production build
 npm run build
-npm start
+
+# Preview production build
+npm run preview
 ```
 
-## 📁 Project Structure
+## 🏛️ Project Structure
 
 ```
 portfolio/
 ├── src/
 │   ├── app/
-│   │   ├── layout.tsx      # Root layout with metadata
-│   │   ├── page.tsx         # Main portfolio page
-│   │   └── globals.css      # Global styles & Tailwind
+│   │   ├── layout.tsx          # Root layout with metadata
+│   │   ├── page.tsx             # Main portfolio page
+│   │   └── globals.css          # Global styles & Tailwind
 │   ├── components/
-│   │   └── ExperienceCard.tsx  # Reusable experience component
+│   │   ├── About.tsx            # About section component
+│   │   ├── ExperienceCard.tsx   # Reusable experience component
+│   │   └── Spotlight.tsx        # Mouse-tracking spotlight effect
 │   └── lib/
-│       └── utils.ts         # Utility functions (cn helper)
-├── tailwind.config.ts       # Tailwind configuration
+│       └── utils.ts             # Utility functions (cn helper)
+├── tailwind.config.ts           # Tailwind configuration
 └── package.json
 ```
 
-## ✨ Features
+## ✨ Key Features
 
-- **Responsive Design**: Mobile-first approach
-- **Sticky Header**: Left sidebar stays fixed on desktop
-- **Smooth Animations**: Framer Motion for scroll-triggered animations
-- **Accessibility**: Semantic HTML, ARIA labels
-- **Performance**: Optimized fonts, code splitting
-- **SEO**: OpenGraph metadata for social sharing
+- **Responsive Design:** Mobile-first approach with sticky sidebar on desktop
+- **Smooth Animations:** Framer Motion for scroll-triggered animations
+- **Accessibility:** Semantic HTML, ARIA labels, keyboard navigation
+- **Performance:** Optimized fonts, code splitting, zero layout shift
+- **SEO:** OpenGraph metadata for social sharing
+- **Type Safety:** Full TypeScript coverage
 
 ## 🎯 Experience Card Format
 
-Use the **XYZ Formula** for descriptions:
+Uses the **XYZ Formula** for descriptions:
 > "Accomplished [X] as measured by [Y], by doing [Z]"
 
 Example:
@@ -87,24 +93,16 @@ Example:
 
 ## 🔧 Customization
 
-1. **Update Personal Info**: Edit `src/app/page.tsx`
-2. **Add Experience**: Add more `ExperienceCard` components
-3. **Modify Colors**: Update `tailwind.config.ts`
-4. **Change Metadata**: Edit `src/app/layout.tsx`
-
-## 📦 Dependencies
-
-- `next`: 16.0.7
-- `react`: 19.2.0
-- `framer-motion`: ^12.23.25
-- `lucide-react`: ^0.556.0
-- `clsx`: ^2.1.1
-- `tailwind-merge`: ^3.4.0
+1. **Update Personal Info:** Edit `src/app/page.tsx`
+2. **Modify About Section:** Edit `src/components/About.tsx`
+3. **Add Experience:** Add more `ExperienceCard` components
+4. **Change Colors:** Update `src/app/globals.css` and `tailwind.config.ts`
+5. **Update Metadata:** Edit `src/app/layout.tsx`
 
 ## 🚢 Deployment
 
 Deploy easily to:
-- **Vercel** (recommended for Next.js)
+- **Vercel** (recommended for Next.js) - Edge Network
 - **Netlify**
 - **AWS Amplify**
 - Any platform supporting Next.js
@@ -121,12 +119,18 @@ This project follows clean, granular commits:
 
 - ✅ Utility functions for class merging (`cn` helper)
 - ✅ TypeScript interfaces for type safety
-- ✅ Reusable components
+- ✅ Reusable components with proper props
 - ✅ Mobile-first responsive design
-- ✅ Performance optimizations
-- ✅ Accessibility considerations
+- ✅ Performance optimizations (zero CLS, optimized fonts)
+- ✅ Accessibility considerations (ARIA, semantic HTML)
 - ✅ Clean git history
+- ✅ Advanced CSS animations (Spotlight effect)
+- ✅ Strategic color hierarchy
+
+## 📄 License
+
+MIT
 
 ---
 
-Built with ❤️ using Next.js and Tailwind CSS
+Built with ❤️ using Next.js, TypeScript, and Tailwind CSS

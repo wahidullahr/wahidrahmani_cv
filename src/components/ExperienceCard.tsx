@@ -16,9 +16,11 @@ interface ExperienceProps {
 
   skills: string[];
 
+  link?: string;
+
 }
 
-export const ExperienceCard = ({ date, title, company, description, skills }: ExperienceProps) => {
+export const ExperienceCard = ({ date, title, company, description, skills, link }: ExperienceProps) => {
 
   return (
 
@@ -38,9 +40,15 @@ export const ExperienceCard = ({ date, title, company, description, skills }: Ex
 
     >
 
+      {/* The Hover Effect Background - This is critical */}
+
+      <div className="absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-md transition motion-reduce:transition-none lg:-inset-x-6 lg:block lg:group-hover:bg-slate-800/50 lg:group-hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] lg:group-hover:drop-shadow-lg"></div>
+
+      
+
       {/* Date Column: Sticky on mobile, left on desktop */}
 
-      <header className="z-10 mb-2 mt-1 text-xs font-semibold uppercase tracking-wide text-text-secondary sm:col-span-2">
+      <header className="z-10 mb-2 mt-1 text-xs font-semibold uppercase tracking-wide text-slate-500 sm:col-span-2">
 
         {date}
 
@@ -52,27 +60,53 @@ export const ExperienceCard = ({ date, title, company, description, skills }: Ex
 
       <div className="z-10 sm:col-span-6">
 
-        <h3 className="font-medium leading-snug text-text-primary">
+        <h3 className="font-medium leading-snug text-slate-200">
 
           <div>
 
-            <span className="absolute -inset-x-4 -inset-y-2.5 hidden rounded md:-inset-x-6 md:-inset-y-4 lg:block lg:group-hover:bg-surface/50 lg:group-hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] lg:group-hover:drop-shadow-lg motion-reduce:transition-none"></span>
+            {link ? (
 
-            <span className="text-primary group-hover:text-emerald-300 transition-colors">
+              <a 
 
-              {title} · {company}
+                className="inline-flex items-baseline font-medium leading-tight text-slate-200 hover:text-emerald-300 focus-visible:text-emerald-300 group/link transition-colors" 
 
-            </span>
+                href={link}
+
+                target="_blank"
+
+                rel="noopener noreferrer"
+
+              >
+
+                <span className="text-emerald-400 group-hover:text-emerald-300 transition-colors">
+
+                  {title} · {company}
+
+                </span>
+
+              </a>
+
+            ) : (
+
+              <span className="text-emerald-400 group-hover:text-emerald-300 transition-colors">
+
+                {title} · {company}
+
+              </span>
+
+            )}
 
           </div>
 
         </h3>
 
-        <p className="mt-2 text-sm leading-normal text-text-secondary">
+        <p className="mt-2 text-sm leading-normal text-slate-400">
 
           {description}
 
         </p>
+
+        {/* Badges: Make them smaller and more subtle */}
 
         <ul className="mt-2 flex flex-wrap" aria-label="Technologies used">
 
@@ -99,4 +133,3 @@ export const ExperienceCard = ({ date, title, company, description, skills }: Ex
   );
 
 };
-
