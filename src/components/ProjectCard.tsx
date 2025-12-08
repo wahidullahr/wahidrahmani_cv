@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { ChevronLeft, ChevronRight, Github, ExternalLink, Folder } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -18,6 +19,7 @@ interface ProjectProps {
 export const ProjectCard = ({ title, description, tags, links, images }: ProjectProps) => {
   const [currentImage, setCurrentImage] = useState(0);
   const [direction, setDirection] = useState(0);
+  const [imageError, setImageError] = useState(false);
 
   const slideVariants = {
     enter: (direction: number) => ({
@@ -38,6 +40,7 @@ export const ProjectCard = ({ title, description, tags, links, images }: Project
 
   const paginate = (newDirection: number) => {
     setDirection(newDirection);
+    setImageError(false); // Reset error state when changing images
     setCurrentImage((prev) => {
         let nextIndex = prev + newDirection;
         if (nextIndex < 0) nextIndex = images.length - 1;
@@ -65,14 +68,25 @@ export const ProjectCard = ({ title, description, tags, links, images }: Project
                 }}
                 className="absolute inset-0 flex items-center justify-center bg-secondary"
             >
-                {/* Fallback if image string is empty or placeholder */}
-                {images[currentImage].startsWith("http") ? (
-                   // eslint-disable-next-line @next/next/no-img-element
-                   <img src={images[currentImage]} alt={`${title} screenshot ${currentImage + 1}`} className="w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity" />
+                {/* Render image (supports both local /images/ and external URLs) */}
+                {(images[currentImage].startsWith("http") || images[currentImage].startsWith("/")) && !imageError ? (
+                   <div className="relative w-full h-full">
+                     <Image 
+                        src={images[currentImage]} 
+                        alt={`${title} screenshot ${currentImage + 1}`} 
+                        fill
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        className="object-cover opacity-90 hover:opacity-100 transition-opacity"
+                        onError={() => setImageError(true)}
+                        unoptimized={images[currentImage].startsWith("http")}
+                     />
+                   </div>
                 ) : (
                    <div className="flex flex-col items-center text-text-secondary gap-2">
                       <Folder size={32} />
-                      <span className="text-xs font-mono">Image {currentImage + 1}</span>
+                      <span className="text-xs font-mono">
+                        {imageError ? "Image not found" : `Image ${currentImage + 1}`}
+                      </span>
                    </div>
                 )}
             </motion.div>
@@ -83,12 +97,14 @@ export const ProjectCard = ({ title, description, tags, links, images }: Project
             <button 
                 onClick={(e) => { e.stopPropagation(); paginate(-1); }}
                 className="p-1.5 rounded-full bg-black/50 text-white/70 hover:bg-black/80 hover:text-white transition-colors backdrop-blur-sm"
+                aria-label="Previous image"
             >
                 <ChevronLeft size={16} />
             </button>
             <button 
                 onClick={(e) => { e.stopPropagation(); paginate(1); }}
                 className="p-1.5 rounded-full bg-black/50 text-white/70 hover:bg-black/80 hover:text-white transition-colors backdrop-blur-sm"
+                aria-label="Next image"
             >
                 <ChevronRight size={16} />
             </button>
@@ -111,12 +127,24 @@ export const ProjectCard = ({ title, description, tags, links, images }: Project
             <h3 className="text-lg font-bold text-card-foreground group-hover/project:text-primary transition-colors">{title}</h3>
             <div className="flex gap-2">
                 {links.github && (
-                    <a href={links.github} target="_blank" rel="noopener noreferrer" className="text-text-secondary hover:text-foreground transition-colors">
+                    <a 
+                        href={links.github} 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        className="text-text-secondary hover:text-foreground transition-colors"
+                        aria-label={`View ${title} on GitHub`}
+                    >
                         <Github size={18} />
                     </a>
                 )}
                 {links.demo && (
-                    <a href={links.demo} target="_blank" rel="noopener noreferrer" className="text-text-secondary hover:text-foreground transition-colors">
+                    <a 
+                        href={links.demo} 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        className="text-text-secondary hover:text-foreground transition-colors"
+                        aria-label={`View ${title} demo`}
+                    >
                         <ExternalLink size={18} />
                     </a>
                 )}
