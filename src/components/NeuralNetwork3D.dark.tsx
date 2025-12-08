@@ -5,23 +5,23 @@ import { Canvas, useFrame } from "@react-three/fiber";
 import { OrbitControls, Sphere, Line } from "@react-three/drei";
 import * as THREE from "three";
 
-// Configuration for the 3D graph - Light Mode Only
+// Configuration for the 3D graph - Dark Mode Only
 const NODE_COUNT = 40;
 const CONNECTION_DISTANCE = 2.5;
 const GRAPH_RADIUS = 4;
 
-// Light Mode Configuration - Optimized for light backgrounds
-const LIGHT_MODE_CONFIG = {
-  nodeColor: "#0d9488", // Teal primary
-  connectionColor: "#14b8a6", // Lighter teal for connections
-  nodeSize: 0.1,
-  connectionOpacity: 0.35,
-  connectionWidth: 1.2,
-  rotationSpeed: 0.1,
-  ambientLightIntensity: 0.7,
+// Dark Mode Configuration - Optimized for dark backgrounds
+const DARK_MODE_CONFIG = {
+  nodeColor: "#34d399", // Brighter emerald for better visibility on dark background
+  connectionColor: "#6ee7b7", // Even lighter emerald for connections
+  nodeSize: 0.12,
+  connectionOpacity: 0.6,
+  connectionWidth: 2,
+  rotationSpeed: 0.12,
+  ambientLightIntensity: 0.8,
 };
 
-function GraphLight() {
+function GraphDark() {
   const groupRef = useRef<THREE.Group>(null);
   const [mounted, setMounted] = useState(false);
 
@@ -62,13 +62,13 @@ function GraphLight() {
   // 3. Animate rotation
   useFrame((state) => {
     if (groupRef.current) {
-      groupRef.current.rotation.y = state.clock.getElapsedTime() * LIGHT_MODE_CONFIG.rotationSpeed;
+      groupRef.current.rotation.y = state.clock.getElapsedTime() * DARK_MODE_CONFIG.rotationSpeed;
       groupRef.current.rotation.x = Math.sin(state.clock.getElapsedTime() * 0.05) * 0.2;
     }
   });
 
-  const nodeColor = new THREE.Color(LIGHT_MODE_CONFIG.nodeColor);
-  const connectionColor = new THREE.Color(LIGHT_MODE_CONFIG.connectionColor);
+  const nodeColor = new THREE.Color(DARK_MODE_CONFIG.nodeColor);
+  const connectionColor = new THREE.Color(DARK_MODE_CONFIG.connectionColor);
 
   // Don't render until mounted to avoid hydration mismatch
   if (!mounted) return null;
@@ -77,7 +77,7 @@ function GraphLight() {
     <group ref={groupRef}>
       {/* Render Nodes */}
       {nodes.map((pos, i) => (
-        <Sphere key={i} position={pos} args={[LIGHT_MODE_CONFIG.nodeSize, 16, 16]}>
+        <Sphere key={i} position={pos} args={[DARK_MODE_CONFIG.nodeSize, 16, 16]}>
           <meshBasicMaterial color={nodeColor} />
         </Sphere>
       ))}
@@ -87,16 +87,16 @@ function GraphLight() {
           key={i}
           points={[start, end]}
           color={connectionColor}
-          lineWidth={LIGHT_MODE_CONFIG.connectionWidth}
+          lineWidth={DARK_MODE_CONFIG.connectionWidth}
           transparent
-          opacity={LIGHT_MODE_CONFIG.connectionOpacity}
+          opacity={DARK_MODE_CONFIG.connectionOpacity}
         />
       ))}
     </group>
   );
 }
 
-export const NeuralNetwork3D = ({ className }: { className?: string }) => {
+export const NeuralNetwork3DDark = ({ className }: { className?: string }) => {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -113,12 +113,12 @@ export const NeuralNetwork3D = ({ className }: { className?: string }) => {
         camera={{ position: [0, 0, 10], fov: 50 }} 
         gl={{ alpha: true, antialias: true, premultipliedAlpha: false }}
       >
-        <ambientLight intensity={LIGHT_MODE_CONFIG.ambientLightIntensity} />
-        <GraphLight />
+        <ambientLight intensity={DARK_MODE_CONFIG.ambientLightIntensity} />
+        <GraphDark />
         <OrbitControls 
           enableZoom={false} 
           autoRotate={true} 
-          autoRotateSpeed={0.5} 
+          autoRotateSpeed={0.6} 
           enablePan={false} 
           enableRotate={false} 
         />
