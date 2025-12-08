@@ -24,89 +24,210 @@
   --font-sans: var(--font-inter);
 }
 
-/* Light Mode (Default) */
+/* =========================================
+   THEME DEFINITIONS
+   ========================================= */
+
+/* 
+   LIGHT MODE (Default) - "PROFESSIONAL ELEGANCE"
+   A sophisticated, modern theme with rich color harmony and visual depth.
+*/
 :root {
-  /* Base: Zinc 50 / Zinc 950 */
-  --background: #fafafa;
-  --foreground: #09090b;
+  /* Base Colors - Warm, sophisticated background */
+  --background: #f8f7f4; 
+  --foreground: #0f172a;
 
-  /* Surface/Cards: White */
-  --surface: #ffffff;
-  --card: #ffffff;
-  --card-foreground: #09090b;
+  /* Surfaces - Premium glassmorphism */
+  --surface: rgba(255, 255, 255, 0.8);
+  --card: rgba(255, 255, 255, 0.94);
+  --card-foreground: #0f172a;
 
-  /* Primary: Emerald 600 (Slightly darker for light mode contrast) */
-  --primary: #059669;
+  /* Brand Colors - Deep teal-blue (Professional & Modern) */
+  --primary: #0d9488; 
   --primary-foreground: #ffffff;
 
-  /* Secondary Text: Zinc 700 (Much darker for clear visibility) */
-  --text-secondary: #3f3f46;
+  /* Secondary */
+  --text-secondary: #475569;
+  --secondary: rgba(255, 255, 255, 0.7);
+  --secondary-foreground: #1e293b;
 
-  /* Borders: Zinc 300 */
-  --border: #d4d4d8;
-  --input: #d4d4d8;
+  /* Borders - Subtle but defined */
+  --border: rgba(15, 23, 42, 0.08); 
+  --input: rgba(15, 23, 42, 0.08);
 
-  /* Secondary Elements: Zinc 100 */
-  --secondary: #f4f4f5;
-  --secondary-foreground: #18181b;
+  /* --- SEMANTIC GRADIENTS (Light Mode) --- */
+  
+  /* The "Ambient Glow" Background - Sophisticated color harmony */
+  --grad-overlay: radial-gradient(at 0% 0%, rgba(14, 165, 233, 0.08) 0px, transparent 50%),
+                  radial-gradient(at 100% 0%, rgba(20, 184, 166, 0.08) 0px, transparent 50%),
+                  radial-gradient(at 100% 100%, rgba(99, 102, 241, 0.06) 0px, transparent 50%),
+                  radial-gradient(at 0% 100%, rgba(139, 92, 246, 0.06) 0px, transparent 50%);
 
-  /* Smooth scrolling is mandatory for premium feel */
-  scroll-behavior: smooth;
+  /* Card Gradients - Rich, professional variations */
+  --grad-card-standard: linear-gradient(135deg, rgba(255,255,255,0.98) 0%, rgba(248, 250, 252, 0.95) 100%);
+  
+  /* Focus card - Fresh teal-cyan gradient */
+  --grad-card-focus: linear-gradient(135deg, rgba(236, 254, 255, 0.9) 0%, rgba(255, 255, 255, 0.98) 50%, rgba(240, 253, 250, 0.9) 100%); 
+  
+  /* Tech card - Cool blue-indigo gradient */
+  --grad-card-tech: linear-gradient(135deg, rgba(239, 246, 255, 0.9) 0%, rgba(255, 255, 255, 0.98) 50%, rgba(245, 243, 255, 0.9) 100%); 
+  
+  /* Achievement card - Warm amber-gold gradient */
+  --grad-card-achieve: linear-gradient(135deg, rgba(255, 251, 235, 0.9) 0%, rgba(255, 255, 255, 0.98) 50%, rgba(254, 243, 199, 0.9) 100%); 
+  
+  /* Education card - Soft purple-lavender gradient */
+  --grad-card-edu: linear-gradient(135deg, rgba(250, 245, 255, 0.9) 0%, rgba(255, 255, 255, 0.98) 50%, rgba(243, 232, 255, 0.9) 100%);
+  
+  /* Experience card - Elegant slate-blue gradient */
+  --grad-card-exp: linear-gradient(135deg, rgba(241, 245, 249, 0.9) 0%, rgba(255, 255, 255, 0.98) 50%, rgba(226, 232, 240, 0.9) 100%);
+  
+  /* CTA: Vibrant teal-purple gradient */
+  --grad-card-cta: linear-gradient(135deg, rgba(236, 254, 255, 0.95) 0%, rgba(245, 243, 255, 0.95) 50%, rgba(252, 231, 243, 0.95) 100%); 
+  --cta-border-color: rgba(20, 184, 166, 0.4); 
+  
+  /* Enhanced Shadow for premium depth */
+  --card-shadow: 0 10px 40px -6px rgba(15, 23, 42, 0.1), 0 4px 16px -4px rgba(15, 23, 42, 0.06);
+  
+  /* Effects - Professional spotlight and selection */
+  --spotlight-color: rgba(20, 184, 166, 0.15); 
+  --selection-bg: rgba(20, 184, 166, 0.25);
+  --selection-text: #0d9488;
+  
+  --backdrop-blur: blur(20px);
 }
 
-/* Dark Mode */
+/* 
+   DARK MODE (Reset)
+*/
 .dark {
-  /* Base: Obsidian (#0a0a0a) */
+  /* Base Colors (Obsidian) */
   --background: #0a0a0a;
   --foreground: #ededed;
 
-  /* Surface: #111111 */
+  /* Surfaces */
   --surface: #111111;
   --card: #111111;
   --card-foreground: #ededed;
 
-  /* Primary: Emerald 500 */
+  /* Brand Colors (Emerald) */
   --primary: #10b981;
   --primary-foreground: #000000;
 
-  /* Secondary Text: Zinc 400 */
+  /* Secondary */
   --text-secondary: #a1a1aa;
+  --secondary: #27272a;
+  --secondary-foreground: #fafafa;
 
-  /* Borders: White/10 (~Zinc 800) */
+  /* Borders */
   --border: rgba(255, 255, 255, 0.1);
   --input: rgba(255, 255, 255, 0.1);
 
-  /* Secondary Elements: Zinc 800 */
-  --secondary: #27272a;
-  --secondary-foreground: #fafafa;
+  /* Reset Semantics */
+  --grad-overlay: none;
+  --grad-card-standard: none;
+  --grad-card-focus: none;
+  --grad-card-tech: none;
+  --grad-card-achieve: none;
+  --grad-card-edu: none;
+  --grad-card-exp: none;
+  --grad-card-cta: none;
+  --grad-text-brand: none;
+  --card-shadow: none;
+  --backdrop-blur: none;
+
+  /* Effects */
+  --spotlight-color: rgba(16, 185, 129, 0.15);
+  --selection-bg: rgba(16, 185, 129, 0.3);
+  --selection-text: #10b981;
 }
 
 body {
   background-color: var(--background);
   color: var(--foreground);
-  /* Anti-aliasing makes text look crisp on high-DPI screens */
   -webkit-font-smoothing: antialiased; 
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Custom Selection Color */
+/* Custom Selection */
 ::selection {
-  background: var(--primary);
-  color: var(--primary-foreground);
-  opacity: 0.2; /* Note: background opacity works differently in selection */
-}
-/* Fix for selection opacity */
-::selection {
-  background: rgba(16, 185, 129, 0.2);
-  color: #10b981;
-}
-.dark ::selection {
-  background: rgba(16, 185, 129, 0.3);
-  color: #10b981;
+  background: var(--selection-bg);
+  color: var(--selection-text);
 }
 
 /* Utility for fading out the 3D background */
 .mask-linear-fade {
   mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
   -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+}
+
+/* 
+   UTILITY CLASSES 
+*/
+.bg-theme-overlay { background: var(--grad-overlay); }
+
+/* Glassmorphism Base Class */
+.glass-card {
+  backdrop-filter: var(--backdrop-blur);
+  -webkit-backdrop-filter: var(--backdrop-blur);
+  border: 1px solid var(--border);
+  box-shadow: var(--card-shadow);
+}
+
+/* BentoCard Enhanced Visibility - Light Mode Only */
+:root:not(.dark) .bento-card {
+  -webkit-backdrop-filter: var(--backdrop-blur);
+  backdrop-filter: var(--backdrop-blur);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.96) 0%, rgba(248, 250, 252, 0.94) 100%);
+  border: 1px solid var(--border);
+  box-shadow: var(--card-shadow);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+:root:not(.dark) .bento-card:hover {
+  background: linear-gradient(135deg, rgba(236, 254, 255, 0.85) 0%, rgba(240, 253, 250, 0.85) 100%);
+  border-color: rgba(20, 184, 166, 0.35);
+  box-shadow: 0 12px 48px -8px rgba(20, 184, 166, 0.15), 0 6px 20px -4px rgba(15, 23, 42, 0.08);
+  transform: translateY(-2px);
+}
+
+/* Shared Glass Properties */
+.bg-theme-card-focus,
+.bg-theme-card-tech,
+.bg-theme-card-achieve,
+.bg-theme-card-edu,
+.bg-theme-card-exp,
+.bg-theme-card-cta {
+  backdrop-filter: var(--backdrop-blur);
+  -webkit-backdrop-filter: var(--backdrop-blur);
+  box-shadow: var(--card-shadow);
+  border: 1px solid var(--border); /* Added visible border */
+}
+
+.bg-theme-card-focus { background: var(--grad-card-focus); background-color: var(--card); }
+.bg-theme-card-tech { background: var(--grad-card-tech); background-color: var(--card); }
+.bg-theme-card-achieve { background: var(--grad-card-achieve); background-color: var(--card); }
+.bg-theme-card-edu { background: var(--grad-card-edu); background-color: var(--card); }
+.bg-theme-card-exp { background: var(--grad-card-exp); background-color: var(--card); }
+
+.bg-theme-card-cta { 
+  background: var(--grad-card-cta); 
+  background-color: var(--card); 
+  border: 1px solid var(--cta-border-color, transparent);
+}
+
+/* Text Gradient Utility */
+.text-theme-brand {
+  background-image: var(--grad-text-brand);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: var(--primary); 
+}
+.dark .text-theme-brand {
+  background-image: none;
+  color: var(--primary);
+  -webkit-text-fill-color: var(--primary);
+}
+:root:not(.dark) .text-theme-brand {
+  color: transparent; 
+  -webkit-text-fill-color: transparent;
 }

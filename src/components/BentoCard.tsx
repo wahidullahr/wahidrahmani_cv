@@ -24,20 +24,21 @@ export const BentoCard = ({ children, className, title, colSpan = "col-span-1" }
   return (
     <div
       className={cn(
-        "group relative overflow-hidden rounded-xl border border-border bg-card transition-colors hover:border-primary/20",
+        "bento-card group relative overflow-hidden rounded-xl border border-border bg-card",
+        "backdrop-blur-lg",
         colSpan,
         className
       )}
       onMouseMove={handleMouseMove}
     >
-      {/* 1. The Spotlight Effect (Internal Glow) */}
+      {/* 1. The Spotlight Effect (Internal Glow) - Using theme color */}
       <motion.div
         className="pointer-events-none absolute -inset-px opacity-0 transition duration-300 group-hover:opacity-100 z-10"
         style={{
           background: useMotionTemplate`
             radial-gradient(
               600px circle at ${mouseX}px ${mouseY}px,
-              rgba(16, 185, 129, 0.15),
+              rgba(20, 184, 166, 0.2),
               transparent 80%
             )
           `,
@@ -45,7 +46,7 @@ export const BentoCard = ({ children, className, title, colSpan = "col-span-1" }
       />
       
       {/* 2. The Noise Texture (Premium Feel) */}
-      <div className="absolute inset-0 opacity-[0.03] pointer-events-none z-0 mix-blend-overlay" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")` }}></div>
+      <div className="absolute inset-0 opacity-[0.02] pointer-events-none z-0 mix-blend-overlay" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")` }}></div>
 
       {/* 3. Content */}
       <div className="relative z-20 flex h-full flex-col p-4 md:p-6">
