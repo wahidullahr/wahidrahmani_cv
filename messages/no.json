@@ -1,0 +1,90 @@
+{
+  "header": {
+    "title": "Wahid Rahmani",
+    "subtitle": "Programvareingeniør & AI/ML-spesialist",
+    "description": "Bygger bro mellom komplekse AI-algoritmer og brukervennlige applikasjoner i raske Agile-miljøer.",
+    "location": "📍 Bærum, Norge",
+    "languages": "Flytende i norsk, engelsk, hindi, persisk, pashto"
+  },
+  "currentFocus": {
+    "title": "Nåværende Fokus",
+    "company": "Xala Technologies AS",
+    "role": "Programvareutvikler",
+    "date": "Apr 2025 – Nå",
+    "description": "Arkitekterer skalerbare nettbaserte løsninger med fokus på dataintensive applikasjoner. Utnytter React, TypeScript og Python for å bygge stabile, høyt presterende systemer.",
+    "achievement1": "Utviklet responsive brukergrensesnitt med React & TypeScript, reduserte rendertider og forbedret typesikkerhet.",
+    "achievement2": "Optimaliserte SQL-databaseskjemaer og Python-pipelines for storskala AI-datapreprosessering.",
+    "achievement3": "Forbedret JavaScript-arbeidsflyter og løste komplekse produksjonsflaskehalser for å sikre 99,9% plattformstabilitet.",
+    "downloadCV": "Last ned CV",
+    "getInTouch": "Ta kontakt"
+  },
+  "techStack": {
+    "title": "Teknologistakk",
+    "languages": "Språk",
+    "aiMl": "AI & ML",
+    "frameworksOps": "Rammer & Ops"
+  },
+  "achievements": {
+    "title": "Nøkkelprestasjoner",
+    "msc": "M.Sc. Spesialisert i ML",
+    "mscLocation": "Universitetet i Oslo",
+    "leadingAI": "Leder AI-initiativer",
+    "leadingAILocation": "Xala Technologies",
+    "uptime": "99,9% Oppetid",
+    "uptimeLocation": "Kritisk Web Ops"
+  },
+  "education": {
+    "title": "Utdanning",
+    "msc": "M.Sc. Informatikk: ML",
+    "mscDate": "Universitetet i Oslo • 2021-2024",
+    "mscThesis": "Oppgave: Evaluering av Likert-skalaer ved bruk av maskinlæring (sentimentanalyse).",
+    "bsc": "B.Sc. IT & Informasjonssystemer",
+    "bscDate": "Universitetet i Sørøst-Norge • 2018-2021",
+    "bscThesis": "Oppgave: Reiseformdeteksjonsapp ved bruk av sanntidssensordata."
+  },
+  "previousExperience": {
+    "title": "Tidligere Erfaring",
+    "beiningTitle": "App-utvikler",
+    "beiningCompany": "Beining & Bogen AS",
+    "beiningDate": "2022-2025",
+    "beiningDescription": "Jobbet som Android-utvikler med å bygge native apper med Kotlin & Jetpack Compose. Jeg utnyttet det omfattende Jetpack-bibliotekøkosystemet for å lage moderne, responsive brukergrensesnitt og implementerte sensorbaserte funksjoner for bedre brukeropplevelse.",
+    "ksTitle": "Nettstedsleder & QA-leder",
+    "ksCompany": "KS Privatist AS",
+    "ksDate": "2020-2021",
+    "ksDescription": "Administrerte bedriftens nettsted og admin-innhold. Jeg jobbet direkte med ingeniørteamet for å identifisere og rapportere feil, og fungerte som bro mellom interessenter og utviklere for å sikre at plattformen kjørte smidig."
+  },
+  "projects": {
+    "title": "Utvalgte Prosjekter",
+    "sentimentTitle": "AI Sentimentanalyse",
+    "sentimentDescription": "En maskinlæringspipeline som analyserer kundetilbakemeldinger med 94% nøyaktighet ved bruk av BERT-transformere.",
+    "travelTitle": "Sanntids Reisesporing",
+    "travelDescription": "Android-applikasjon som bruker GPS- og akselerometerdata for automatisk å oppdage og logge reisemetoder.",
+    "portfolioTitle": "Portefølje v4",
+    "portfolioDescription": "En høyt presterende personlig portefølje bygget med Next.js 16, med 3D-visualiseringer og et tilpasset bento grid-oppsett."
+  },
+  "contact": {
+    "openToWork": "Åpen for arbeid",
+    "title": "La oss bygge fremtiden.",
+    "description": "Jeg er for øyeblikket tilgjengelig for nye muligheter. Enten du har et spørsmål eller bare vil si hei, vil jeg prøve mitt beste for å komme tilbake til deg!",
+    "form": {
+      "name": "Navn",
+      "namePlaceholder": "Ditt navn",
+      "email": "E-post",
+      "emailPlaceholder": "din@epost.no",
+      "message": "Melding",
+      "messagePlaceholder": "Hei! Jeg vil gjerne diskutere...",
+      "send": "Send melding",
+      "sending": "Sender...",
+      "successTitle": "Melding sendt!",
+      "successDescription": "Takk for at du tok kontakt! Jeg kommer tilbake til deg så snart som mulig.",
+      "sendAnother": "Send en annen melding",
+      "errorTitle": "Kunne ikke sende melding",
+      "errorFallback": "Klikk her for å sende e-post direkte"
+    }
+  },
+  "footer": {
+    "text": "© 2025 Wahid Rahmani. Bygget med Next.js 16, TypeScript, Tailwind CSS & Three.js."
+  }
+}
+
+

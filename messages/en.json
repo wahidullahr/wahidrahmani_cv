@@ -1,0 +1,90 @@
+{
+  "header": {
+    "title": "Wahid Rahmani",
+    "subtitle": "Software Engineer & AI/ML Specialist",
+    "description": "Bridging the gap between complex AI algorithms and user-friendly applications in fast-paced Agile environments.",
+    "location": "📍 Bærum, Norway",
+    "languages": "Fluent in Norwegian, English, Hindi, Persian, Pashto"
+  },
+  "currentFocus": {
+    "title": "Current Focus",
+    "company": "Xala Technologies AS",
+    "role": "Software Developer",
+    "date": "Apr 2025 – Present",
+    "description": "Architecting scalable web solutions with a focus on data-intensive applications. Leveraging React, TypeScript, and Python to build stable, high-performance systems.",
+    "achievement1": "Engineered responsive UIs using React & TypeScript, reducing render times and improving type safety.",
+    "achievement2": "Optimized SQL database schemas and Python pipelines for large-scale AI data preprocessing.",
+    "achievement3": "Refined JavaScript workflows and resolved complex production bottlenecks to ensure 99.9% platform stability.",
+    "downloadCV": "Download CV",
+    "getInTouch": "Get in Touch"
+  },
+  "techStack": {
+    "title": "Tech Stack",
+    "languages": "Languages",
+    "aiMl": "AI & ML",
+    "frameworksOps": "Frameworks & Ops"
+  },
+  "achievements": {
+    "title": "Key Achievements",
+    "msc": "M.Sc. Specialized in ML",
+    "mscLocation": "University of Oslo",
+    "leadingAI": "Leading AI Initiatives",
+    "leadingAILocation": "Xala Technologies",
+    "uptime": "99.9% Uptime Record",
+    "uptimeLocation": "Critical Web Ops"
+  },
+  "education": {
+    "title": "Education",
+    "msc": "M.Sc. Informatics: ML",
+    "mscDate": "University of Oslo • 2021-2024",
+    "mscThesis": "Thesis: Evaluating Likert Scales using Machine Learning (Sentiment Analysis).",
+    "bsc": "B.Sc. IT & Info Systems",
+    "bscDate": "Univ. of South-Eastern Norway • 2018-2021",
+    "bscThesis": "Thesis: Travel Method Detection App using real-time sensor data."
+  },
+  "previousExperience": {
+    "title": "Previous Experience",
+    "beiningTitle": "App Developer",
+    "beiningCompany": "Beining & Bogen AS",
+    "beiningDate": "2022-2025",
+    "beiningDescription": "Worked as an Android Developer building native apps with Kotlin & Jetpack Compose. I utilized the extensive Jetpack library ecosystem to create modern, responsive user interfaces and implemented sensor-based features for better UX.",
+    "ksTitle": "Website Manager & QA Lead",
+    "ksCompany": "KS Privatist AS",
+    "ksDate": "2020-2021",
+    "ksDescription": "Managed the company website and admin content. I worked directly with the engineering team to identify and report bugs, serving as the bridge between stakeholders and developers to ensure the platform ran smoothly."
+  },
+  "projects": {
+    "title": "Featured Projects",
+    "sentimentTitle": "AI Sentiment Analysis",
+    "sentimentDescription": "A machine learning pipeline that analyzes customer feedback sentiment with 94% accuracy using BERT transformers.",
+    "travelTitle": "Real-time Travel Tracker",
+    "travelDescription": "Android application utilizing GPS and accelerometer data to automatically detect and log travel methods.",
+    "portfolioTitle": "Portfolio v4",
+    "portfolioDescription": "A high-performance personal portfolio built with Next.js 16, featuring 3D visualizations and a custom bento grid layout."
+  },
+  "contact": {
+    "openToWork": "Open to Work",
+    "title": "Let's build the future.",
+    "description": "I'm currently available for new opportunities. Whether you have a question or just want to say hi, I'll try my best to get back to you!",
+    "form": {
+      "name": "Name",
+      "namePlaceholder": "Your Name",
+      "email": "Email",
+      "emailPlaceholder": "your@email.com",
+      "message": "Message",
+      "messagePlaceholder": "Hello! I'd like to discuss...",
+      "send": "Send Message",
+      "sending": "Sending...",
+      "successTitle": "Message Sent!",
+      "successDescription": "Thanks for reaching out! I'll get back to you as soon as possible.",
+      "sendAnother": "Send another message",
+      "errorTitle": "Unable to send message",
+      "errorFallback": "Click here to email directly"
+    }
+  },
+  "footer": {
+    "text": "© 2025 Wahid Rahmani. Built with Next.js 16, TypeScript, Tailwind CSS & Three.js."
+  }
+}
+
+
