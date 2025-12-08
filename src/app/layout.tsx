@@ -1,59 +1,9 @@
-import { ThemeProvider } from "@/components/ThemeProvider";
-import type { Metadata } from "next";
-
-import { Inter } from "next/font/google"; // Best readable sans-serif
-
-import "./globals.css";
-
-const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
-
-export const metadata: Metadata = {
-
-  title: "Wahid Rahmani | Software Engineer | AI & Machine Learning Specialist",
-
-  description: "Software Engineer with a Master's in Machine Learning. Expert in building intelligent, scalable systems using Python, React, and Kotlin.",
-
-  // These are critical for when your link is shared on Slack/Teams
-
-  openGraph: {
-
-    title: "Wahid Rahmani | Software Engineer | AI & Machine Learning Specialist",
-
-    description: "Building intelligent, scalable systems bridging AI algorithms and user-friendly applications.",
-
-    type: "website",
-
-  },
-
-};
-
+// This is a catch-all root layout that redirects to the default locale
+// The actual layout is in [locale]/layout.tsx
 export default function RootLayout({
-
   children,
-
 }: {
-
   children: React.ReactNode;
-
 }) {
-
-  return (
-
-    <html lang="en" className="scroll-smooth" suppressHydrationWarning>
-
-      <body className={`${inter.variable} font-sans antialiased leading-relaxed selection:bg-emerald-500/20`}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="dark"
-          enableSystem
-          disableTransitionOnChange
-        >
-          {children}
-        </ThemeProvider>
-      </body>
-
-    </html>
-
-  );
-
+  return children;
 }
